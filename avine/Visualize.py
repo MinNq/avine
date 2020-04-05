@@ -113,7 +113,7 @@ def ShowTransformations(data, gif_length = 1, fps = 60):
 		# reflection
 		for subplot_id in range(6, 9):
 
-			if frame%30 > 14:
+			if int(progress*10)%2:
 				to_show = np.array([func_list[subplot_id](vector) 
 								for vector in augmented_data])
 			else:
@@ -126,7 +126,6 @@ def ShowTransformations(data, gif_length = 1, fps = 60):
 		return artists
 
 	# making animation with FuncAnimation
-	# 40 frames, separated by 30 ms
 	anim = FuncAnimation(fig, animate, frames = int(fps*gif_length),
 						interval = float(1000)/fps, blit = True)
 
