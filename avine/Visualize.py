@@ -131,6 +131,6 @@ def ShowTransformations(data, gif_length = 1, fps = 60):
 						interval = float(1000)/fps, blit = True)
 
 	# saving the animation into a gif with ImageMagick
-	anim.save('affine_transformations.gif', writer='imagemagick', dpi = 200)
+	anim.save('~/affine_transformations.gif', writer='imagemagick', dpi = 200)
 
 	print('Done! Check your gif!')
