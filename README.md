@@ -1,6 +1,6 @@
-# AffineVi
+# Avine
 
-AffineVi is a module for visualization of affine transformations in 2-dimensional Euclidean space.
+Avine is a module for visualization of affine transformations in 2-dimensional Euclidean space.
 
 9 transformations are supported:
 - Identity
@@ -16,17 +16,17 @@ AffineVi is a module for visualization of affine transformations in 2-dimensiona
 
 ## Installation
 
-AffineVi can be installed with
+Avine can be installed with
 
 ```
-pip install git+https://github.com/MinNq/affinevi.git#egg=affinevi
+pip install git+https://github.com/MinNq/avine.git#egg=avine
 ```
 
 NumPy and Matplotlib modules are required. You also need to install [ImageMagick](https://imagemagick.org/index.php) as a gif writer.
 
 ## Functions
 
-### affinevi.ShowAffineTransformations
+### avine.ShowAffineTransformations
 
 ```python
 ShowTransformations(data, gif_length = 1, fps = 60)
@@ -43,7 +43,7 @@ This function creates a gif with affine transformations applied to given data.
 
 ```python
 >>> import numpy as np
->>> from affinevi.Visualize import *
+>>> from avine.Visualize import *
 >>> Data = np.random.rand(20,2)
 >>> ShowTransformations(Data)
 ```
