@@ -90,7 +90,7 @@ def ShowTransformations(data, gif_length = 1, fps = 60):
 		progress = float(frame)/(fps*gif_length)
 
 		if frame:
-			print('Progress: {}%'.format(progress*90))
+			print('Progress: {}%'.format(progress*90), flush = True)
 
 		reset()
 
@@ -132,4 +132,4 @@ def ShowTransformations(data, gif_length = 1, fps = 60):
 	# saving the animation into a gif with ImageMagick
 	anim.save('~/affine_transformations.gif', writer='imagemagick', dpi = 200)
 
-	print('Done! Check your gif!')
+	print('Done! Check your gif!', flush = True)
