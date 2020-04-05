@@ -29,7 +29,7 @@ NumPy and Matplotlib modules are required. You also need to install [ImageMagick
 ### avine.Visualize.ShowTransformations
 
 ```python
-ShowTransformations(data, gif_length = 1, fps = 60)
+avine.Visualize.ShowTransformations(data, gif_length = 1, fps = 60)
 ```
 
 This function creates a gif with affine transformations applied to given data.
