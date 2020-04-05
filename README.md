@@ -19,7 +19,7 @@ AffineVi is a module for visualization of affine transformations in 2-dimensiona
 AffineVi can be installed with
 
 ```
-pip install git+https://github.com/MinNq/affinevi.git#egg=affine
+pip install git+https://github.com/MinNq/affinevi.git#egg=affinevi
 ```
 
 NumPy and Matplotlib modules are required. You also need to install [ImageMagick](https://imagemagick.org/index.php) as a gif writer.
