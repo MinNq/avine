@@ -1,7 +1,5 @@
 # Affine
 
-[toc]
-
 Affine is a module for visualization of affine transformations in 2-dimensional Euclidean space.
 
 9 transformations are supported:
