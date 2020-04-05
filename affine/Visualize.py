@@ -1,7 +1,4 @@
-import numpy as np
-from matplotlib import pyplot as plt
 plt.style.use('seaborn')
-from matplotlib.animation import FuncAnimation
 from AffineTransformations import * 
 
 
@@ -134,7 +131,3 @@ def ShowAffineTransformations(data, gif_length = 1, fps = 60):
 	anim.save('affine_transformations.gif', writer='imagemagick', dpi = 200)
 
 	print('Done! Check your gif!')
-
-Data = np.random.rand(20,2)
-
-ShowAffineTransformations(Data)
