@@ -1,11 +1,11 @@
 import numpy as np
 import matplotlib.pyplot as plt
 plt.style.use('seaborn')
-from AffineTransformations import * 
+from Transformations import * 
 
 
 '''
-ShowAffineTransformations(data, gif_length = 1, fps = 60)
+ShowTransformations(data, gif_length = 1, fps = 60)
 
 > create a gif with all defined affine transformations 
 applied to given data
@@ -15,7 +15,7 @@ gif_length: int or float. Length of ouput gif in second.
 fps: int. Frame rate of output gif.
 '''
 
-def ShowAffineTransformations(data, gif_length = 1, fps = 60):
+def ShowTransformations(data, gif_length = 1, fps = 60):
 
 	# creating a figure and a bunch of subplots
 	fig = plt.figure(figsize = (8, 8))
