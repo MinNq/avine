@@ -45,7 +45,7 @@ This function creates a gif with affine transformations applied to given data.
 >>> import numpy as np
 >>> from affinevi.Visualize import *
 >>> Data = np.random.rand(20,2)
->>> ShowAffineTransformations(Data)
+>>> ShowTransformations(Data)
 ```
 <center>
   <img src = "images/affine-transformations.gif", height = "700"></img>
