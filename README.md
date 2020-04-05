@@ -26,10 +26,10 @@ NumPy and Matplotlib modules are required. You also need to install [ImageMagick
 
 ## Functions
 
-### affine.ShowAffineTransformations
+### affinevi.ShowAffineTransformations
 
 ```python
-ShowAffineTransformations(data, gif_length = 1, fps = 60)
+ShowTransformations(data, gif_length = 1, fps = 60)
 ```
 
 This function creates a gif with affine transformations applied to given data.
