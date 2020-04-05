@@ -2,7 +2,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 plt.style.use('seaborn')
 from matplotlib.animation import FuncAnimation
-from Transformations import * 
+from avine.Transformations import * 
 
 
 '''
