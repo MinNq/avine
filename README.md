@@ -26,7 +26,7 @@ NumPy and Matplotlib modules are required. You also need to install [ImageMagick
 
 ## Functions
 
-### avine.ShowAffineTransformations
+### avine.ShowTransformations
 
 ```python
 ShowTransformations(data, gif_length = 1, fps = 60)
