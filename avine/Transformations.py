@@ -1,99 +1,255 @@
 import numpy as np
 
-# appending 1 to coordinate
-def augmented(coordinate):
-	
-	# making sure coordinate is ndarray
-	coordinate = np.array(coordinate)
-	
-	coordinate = coordinate.reshape((coordinate.size, 1))
-	return np.concatenate((coordinate, [[1]]))
 
 '''
-To facilitate composite functions, the following only
-return augmented coordinates.
+Preprocessing
 '''
+
+def augmented(coordinates):
+
+	'''
+	> Append 1 to coordinates.
+
+	Parameters:
+	- coordinates: array_like. A list of unaugmented
+	data points.
+	'''
+
+	# making sure coordinate is ndarray
+	coordinates = np.array(coordinates)
+	
+	coordinates = coordinates.reshape((2, -1))
+	
+	return np.concatenate((coordinates, [[1]*coordinates.shape[1]]))
+
+'''
+Affine Transformations
+'''
+
+# list of all affine transformations
+transformations = []
 
 # identity
-def identity(data):
+def identity(data, *arg):
+
+	'''
+	> Return data points as they are.
+
+	Parameters:
+	- data: array_like. A matrix where each column
+	is an augmented data point.
+	'''
 
 	matrix = np.array([[1, 0, 0],
 						[0, 1, 0],
 						[0, 0, 1]])
 
 	return np.dot(matrix, data)
+transformations.append(identity)
 
 # translation
-def translation(data, translate_by = [1.8, 1.5]):
+def translate(data, translate_by):
+
+	'''
+	> Return translated data points by given vector.
+
+	Parameters:
+	- data: array_like. A matrix where each column
+	is an augmented data point.
+	- translate_by: array_like. Translation vector.
+	'''
 
 	matrix = np.array([[1, 0, translate_by[0]],
 						[0, 1, translate_by[1]],
 						[0, 0, 1]])
 
 	return np.dot(matrix, data)
+transformations.append(translate)
 
-# scaling about origin
-def scaling(data, scale_factor = [1.8, 1.5]):
+# scaling
+def scale(data, scale_factor):
+
+	'''
+	> Return scaled data points by factor.
+
+	Parameters:
+	- data: array_like. A matrix where each column
+	is an augmented data point.
+	- scale_factor: array_like. Scale factor.
+	'''
 
 	matrix = np.array([[scale_factor[0], 0, 0],
 						[0, scale_factor[1], 0],
 						[0, 0, 1]])
 
 	return np.dot(matrix, data)
+transformations.append(scale)
 
-# rotation about origin
-def rotation(data, angle = np.pi/3):
+# rotation around origin
+def rotate(data, angle):
+
+	'''
+	> Return rotated data points around origin.
+
+	Parameters:
+	- data: array_like. A matrix where each column
+	is an augmented data point.
+	- angle: float. Rotation angle in radiant.
+	'''
 
 	matrix = np.array([[np.cos(angle), np.sin(angle), 0],
 						[-np.sin(angle), np.cos(angle), 0],
 						[0, 0, 1]])
 
 	return np.dot(matrix, data)
+transformations.append(rotate)
 
 # shearing in x direction
-def x_shearing(data, angle = np.pi/3):
+def x_shear(data, angle):
+
+	'''
+	> Return sheared data points in x direction.
+
+	Parameters:
+	- data: array_like. A matrix where each column
+	is an augmented data point.
+	- angle: float. Shear angle in radiant.
+	'''
 
 	matrix = np.array([[1, np.tan(angle), 0],
 						[0, 1, 0],
 						[0, 0, 1]])
 
 	return np.dot(matrix, data)
+transformations.append(x_shear)
 
 # shearing in y direction
-def y_shearing(data, angle = np.pi/3):
+def y_shear(data, angle):
+
+	'''
+	> Return sheared data points in y direction.
+
+	Parameters:
+	- data: array_like. A matrix where each column
+	is an augmented data point.
+	- angle: float. Shear angle in radiant.
+	'''
 
 	matrix = np.array([[1, 0, 0],
 						[np.tan(angle), 1, 0],
 						[0, 0, 1]])
 
 	return np.dot(matrix, data)
+transformations.append(y_shear)
 
-# reflection about origin
-def o_reflection(data):
+# reflection through origin
+def o_reflect(data, *arg):
+
+	'''
+	> Return reflected data points through origin.
+
+	Parameters:
+	- data: array_like. A matrix where each column
+	is an augmented data point.
+	'''
 
 	matrix = np.array([[-1, 0, 0],
 						[0, -1, 0],
 						[0, 0, 1]])
 
 	return np.dot(matrix, data)
+transformations.append(o_reflect)
 
-# reflection about x-axis
-def x_reflection(data):
+# reflection through x-axis
+def x_reflect(data, *arg):
+
+	'''
+	> Return reflected data points through x-axis.
+
+	Parameters:
+	- data: array_like. A matrix where each column
+	is an augmented data point.
+	'''
 
 	matrix = np.array([[1, 0, 0],
 						[0, -1, 0],
 						[0, 0, 1]])
 
 	return np.dot(matrix, data)
+transformations.append(x_reflect)
 
-# reflection about y-axis
-def y_reflection(data):
+# reflection through y-axis
+def y_reflect(data, *arg):
+
+	'''
+	> Return reflected data points through y-axis.
+
+	Parameters:
+	- data: array_like. A matrix where each column
+	is an augmented data point.
+	'''
 
 	matrix = np.array([[-1, 0, 0],
 						[0, 1, 0],
 						[0, 0, 1]])
 
 	return np.dot(matrix, data)
+transformations.append(y_reflect)
 
-# the list of all transformations in this script
-func_list = [identity, translation, scaling, rotation, x_shearing, y_shearing, o_reflection, x_reflection, y_reflection]
+
+def standardize(transformation_list):
+
+	'''
+	> Return transformation list where all
+	elements are 2-tuple.
+	- transformation_list: array_like. A list of
+	transformations to apply, including
+	transformation codes (from 0 to 8) and 
+	corresponding parameters in a 2-tuple. If
+	there are no parameters, just use an integer.
+	'''
+	
+	flag = True
+
+	for (index, func) in enumerate(transformation_list):
+		# checking for parameters
+		try:
+			if len(func) == 1:
+				transformation_list[index] = 0
+		except:
+			transformation_list[index] = (func, 0)
+			flag = False
+
+		if flag:
+			transformation_list[index] = (func[0], func[1])
+
+	return transformation_list
+
+
+def series(data, transformation_list):
+
+	'''
+	> Return all outputs from each component
+	transformations, also including identity
+	at beginning.
+
+	Parameters:
+	- data: array_like. A matrix where each column
+	is an augmented data point.
+	- transformation_list: array_like. A list of
+	transformations to apply, including
+	transformation codes (from 0 to 8) and 
+	corresponding parameters in a 2-tuple. If
+	there are no parameters, just use an integer.
+	'''
+
+	results = [data]
+	transformation_list = standardize(transformation_list)
+
+	for (func_name, arg) in transformation_list:
+
+		latest = results[-1]
+		# moving forward
+		results.append(transformations[func_name](latest, arg))
+
+	return results
