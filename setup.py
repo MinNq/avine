@@ -9,6 +9,6 @@ setup(
     install_requires=['numpy', 'matplotlib'],
     version='0.1',
     license='MIT',
-    description='Avine - a module for visualization of affine transformations in 2-d Euclidean space',	
+    description='Avine - a module for visualizing affine transformations in 2-d Euclidean space',	
     long_description=open('README.txt').read(),
 )
