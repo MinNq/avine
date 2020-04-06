@@ -2,14 +2,6 @@
 
 Avine is a module for visualization of affine transformations in 2-dimensional Euclidean space.
 
-9 transformations are supported:
-- Identity
-- Translation
-- Scaling
-- Rotation
-- Shearing in x and y directions
-- Reflection about origin, x-axis, and y-axis
-
 <center>
   <img src = "images/affine-transformations.gif", height = "700"></img>
 </center>
