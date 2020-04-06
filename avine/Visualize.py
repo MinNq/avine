@@ -5,7 +5,7 @@ import matplotlib.pyplot as plt
 plt.style.use('seaborn')
 from matplotlib.animation import FuncAnimation
 
-from Transformations import *
+from avine.Transformations import *
 
 
 def ShowTransformations(data, save_at, gif_length = 1, fps = 30):
