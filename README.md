@@ -3,12 +3,14 @@
 Avine is a package for visualizing affine transformations in 2-dimensional Euclidean space. Our documentation is available at
 [doc].
 
+**Examples**
+
 <center>
   <img src = "images/affine-transformations.gif", height = "700"></img>
 </center>
 
 <center>
-  <img src = "images/affine-transformation-series.gif", height = "700"></img>
+  <img src = "images/affine-transformation-series.gif", height = "500"></img>
 </center>
 
 ## Installation
