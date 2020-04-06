@@ -49,7 +49,7 @@ def ShowTransformations(data, save_at, gif_length = 1, fps = 30):
 
     # identity
     plots[0].set_offsets(np.c_[Data[0, :], Data[1, :]])
-    axs[0, 0].set_title('Translation')
+    axs[0, 0].set_title('Identity')
 
     # animation function for FuncAnimation
     def animate(frame):
