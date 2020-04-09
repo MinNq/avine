@@ -8,7 +8,7 @@ Preprocessing
 def augmented(coordinates):
 
 	'''
-	> Append 1 to coordinates.
+	Append 1 to coordinates.
 
 	Parameters:
 	- coordinates: array_like. A list of unaugmented
@@ -33,7 +33,7 @@ transformations = []
 def identity(data, *arg):
 
 	'''
-	> Return data points as they are.
+	Return data points as they are.
 
 	Parameters:
 	- data: array_like. A matrix where each column
@@ -51,7 +51,7 @@ transformations.append(identity)
 def translate(data, translate_by):
 
 	'''
-	> Return translated data points by given vector.
+	Return translated data points by given vector.
 
 	Parameters:
 	- data: array_like. A matrix where each column
@@ -70,7 +70,7 @@ transformations.append(translate)
 def scale(data, scale_factor):
 
 	'''
-	> Return scaled data points by factor.
+	Return scaled data points by scale_factor.
 
 	Parameters:
 	- data: array_like. A matrix where each column
@@ -89,7 +89,7 @@ transformations.append(scale)
 def rotate(data, angle):
 
 	'''
-	> Return rotated data points around origin.
+	Return rotated data points around origin.
 
 	Parameters:
 	- data: array_like. A matrix where each column
@@ -108,7 +108,7 @@ transformations.append(rotate)
 def x_shear(data, angle):
 
 	'''
-	> Return sheared data points in x direction.
+	Return sheared data points in x direction.
 
 	Parameters:
 	- data: array_like. A matrix where each column
@@ -127,7 +127,7 @@ transformations.append(x_shear)
 def y_shear(data, angle):
 
 	'''
-	> Return sheared data points in y direction.
+	Return sheared data points in y direction.
 
 	Parameters:
 	- data: array_like. A matrix where each column
@@ -146,7 +146,7 @@ transformations.append(y_shear)
 def o_reflect(data, *arg):
 
 	'''
-	> Return reflected data points through origin.
+	Return reflected data points through origin.
 
 	Parameters:
 	- data: array_like. A matrix where each column
@@ -164,7 +164,7 @@ transformations.append(o_reflect)
 def x_reflect(data, *arg):
 
 	'''
-	> Return reflected data points through x-axis.
+	Return reflected data points through x-axis.
 
 	Parameters:
 	- data: array_like. A matrix where each column
@@ -182,7 +182,7 @@ transformations.append(x_reflect)
 def y_reflect(data, *arg):
 
 	'''
-	> Return reflected data points through y-axis.
+	Return reflected data points through y-axis.
 
 	Parameters:
 	- data: array_like. A matrix where each column
@@ -200,7 +200,7 @@ transformations.append(y_reflect)
 def standardize(transformation_list):
 
 	'''
-	> Return transformation list where all
+	Return transformation list where all
 	elements are 2-tuple.
 	- transformation_list: array_like. A list of
 	transformations to apply, including
@@ -229,7 +229,7 @@ def standardize(transformation_list):
 def series(data, transformation_list):
 
 	'''
-	> Return all outputs from each component
+	Return all outputs from each component
 	transformations, also including identity
 	at beginning.
 
