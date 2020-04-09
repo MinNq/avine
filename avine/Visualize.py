@@ -11,7 +11,7 @@ from avine.Transformations import *
 def ShowTransformations(data, save_at, gif_length = 1, fps = 30):
 
     '''
-    > Show all defined affine transformations applied to
+    Show all defined affine transformations applied to
     given data in a gif.
 
     Parameters:
@@ -93,13 +93,13 @@ def ShowTransformations(data, save_at, gif_length = 1, fps = 30):
         condition = int(progress*gif_length/float(0.2))%2
         update = transformations[7](Data) if condition else Data
         plots[7].set_offsets(np.c_[update[0, :], update[1, :]])
-        axs[2, 1].set_title('Reflection through origin')  
+        axs[2, 1].set_title('Reflection through x-axis')  
 
         # reflection through y-axis
         condition = int(progress*gif_length/float(0.2))%2
         update = transformations[8](Data) if condition else Data
         plots[8].set_offsets(np.c_[update[0, :], update[1, :]])
-        axs[2, 2].set_title('Reflection through origin')
+        axs[2, 2].set_title('Reflection through y-axis')
 
 
     anim = FuncAnimation(fig, animate, interval = float(1000)/fps, 
@@ -112,7 +112,7 @@ def ShowTransformations(data, save_at, gif_length = 1, fps = 30):
 def ShowSeries(data, transformation_list, save_at, gif_length = 3, fps = 30):
 
     '''
-    > Show respectively all given affine transformations 
+    Show respectively all given affine transformations 
     applied to given data in a gif.
 
     Parameters:
@@ -235,3 +235,10 @@ def ShowSeries(data, transformation_list, save_at, gif_length = 3, fps = 30):
     anim.save(save_at, writer = 'imagemagick', dpi = 200)
 
     print('Your gif is ready! Check it at {}.'.format(save_at))
+
+Data = np.random.rand(10, 2)
+
+#func_list = [(3, 0.2*np.pi), (2, [1.2, 1.5]), (3, -0.2*np.pi)]
+#ShowSeries(Data, func_list, save_at = 'try.gif')
+
+ShowTransformations(Data, save_at = 'try2.gif')
