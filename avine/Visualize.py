@@ -235,10 +235,3 @@ def ShowSeries(data, transformation_list, save_at, gif_length = 3, fps = 30):
     anim.save(save_at, writer = 'imagemagick', dpi = 200)
 
     print('Your gif is ready! Check it at {}.'.format(save_at))
-
-Data = np.random.rand(10, 2)
-
-#func_list = [(3, 0.2*np.pi), (2, [1.2, 1.5]), (3, -0.2*np.pi)]
-#ShowSeries(Data, func_list, save_at = 'try.gif')
-
-ShowTransformations(Data, save_at = 'try2.gif')
