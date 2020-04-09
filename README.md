@@ -7,7 +7,7 @@ Avine is a growing package for visualizing affine transformations in 2-dimension
 
 Avine is licensed under the MIT license, which allows reuse without limitation.
 
-Our documentation is available at [minnq.gitbook.io/avine/].
+Our documentation is under development at [minnq.gitbook.io/avine/].
 
 **Examples**
 
