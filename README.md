@@ -11,9 +11,24 @@ Our documentation is available at [minnq.gitbook.io/avine/].
 
 **Examples**
 
+```python
+>>> import numpy as np
+>>> from avine.Visualize import *
+>>> Data = np.random.rand(10, 2)
+>>> ShowTransformations(Data, save_at = 'affine-transformations.gif')
+```
+
 <center>
   <img src = "images/affine-transformations.gif", height = "700"></img>
 </center>
+
+```python
+>>> import numpy as np
+>>> from avine.Visualize import *
+>>> Data = np.random.rand(10, 2)
+>>> func_list = [(3, 0.2*np.pi), (2, [1.2, 1.5]), (3, -0.2*np.pi)]
+>>> ShowSeries(Data, func_list, save_at = 'affine-transformation-series.gif')
+```
 
 <center>
   <img src = "images/affine-transformation-series.gif", height = "500"></img>
